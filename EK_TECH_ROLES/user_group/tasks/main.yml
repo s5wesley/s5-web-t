@@ -1,0 +1,20 @@
+---
+---
+- name: Create groups
+  become: yes
+  group:
+    name: mygroup1
+  loop:
+    - group1
+    - group2
+
+- name: Create users
+  become: yes
+  user:
+    name: "{{ item.name }}"
+    group: "{{ item.group }}"
+    shell: /bin/bash
+  loop:
+    - { name: user1, group: group1 }
+    - { name: user2, group: group2 }
+

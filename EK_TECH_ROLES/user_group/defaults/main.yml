@@ -1,0 +1,9 @@
+---
+user_group_users:
+  - { name: user1, group: group1 }
+  - { name: user2, group: group2 }
+
+user_group_groups:
+  - group1
+  - group2
+

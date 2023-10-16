@@ -1,0 +1,23 @@
+---
+- name: Install packages
+  become: yes
+  apt:
+    name:
+      - curl
+      - git
+      - gnupg
+      - jq
+      - openssh-client
+      - python3
+      - nodejs
+      - npm
+      - vim
+      - wget
+      - python3-pip
+      - net-tools
+      - iputils-ping
+      - default-jre   # Install OpenJDK Java
+      - maven
+      - golang-go
+    state: present
+

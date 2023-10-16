@@ -1,0 +1,5 @@
+---
+- name: Create Users and Groups
+  hosts: all
+  roles:
+    - user_group
