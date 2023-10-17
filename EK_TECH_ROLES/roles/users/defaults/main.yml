@@ -1,0 +1,16 @@
+---
+# defaults file for users
+# user_management/defaults/main.yml
+users:
+  - name: user1
+    uid: 1001
+    groups: users
+    password: encrypted_password_hash  # You should use ansible-vault for encrypting passwords
+  - name: user2
+    uid: 1002
+    groups: users
+    password: encrypted_password_hash
+
+groups:
+  - name: users
+  - name: developers

@@ -1,0 +1,13 @@
+# nginx_server/tasks/main.yml
+
+---
+- name: Install Nginx packages
+  apt:
+    name: nginx
+    state: present
+
+- name: Start and enable Nginx service
+  service:
+    name: nginx
+    state: started
+    enabled: yes

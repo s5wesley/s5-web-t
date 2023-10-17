@@ -1,0 +1,6 @@
+- name: EK_TECH s5wesley_project
+  hosts: all
+  roles:
+    - users
+    - apache2
+    - nginx
