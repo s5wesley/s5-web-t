@@ -1,24 +1,13 @@
 # user_management/tasks/main.yml
 ---
-- name: Create groups
+- name: Create a group
   group:
-    name: "{{ item.name }}"
-  with_items: "{{ groups }}"
-
-- name: Create users
+    name: "{{ group_name }}"
+    state: present
+    
+- name: Create a user
   user:
-    name: "{{ item.name }}"
-    uid: "{{ item.uid }}"
-    groups: "{{ item.groups | default([]) }}"
-    password: "{{ item.password }}"
-  with_items: "{{ users }}"
-  notify: restart some_service # Optionally, notify a service to restart
-
-- name: Ensure users are in their respective groups
-  user:
-    name: "{{ item.name }}"
-    groups: "{{ item.groups | default([]) }}"
-    append: yes
-  with_items: "{{ users }}"
-  when: item.groups is defined
-
+    name: "{{ user_name }}"
+    group: "{{ group_name }}"
+    state: present
+    createhome: yes
