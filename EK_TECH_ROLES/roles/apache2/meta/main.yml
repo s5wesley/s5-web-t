@@ -48,12 +48,4 @@ galaxy_info:
     #       Maximum 20 tags per role.
 
 dependencies: []
----
-dependencies:
-  - name: geerlingguy.apache
-    src: https://github.com/geerlingguy/ansible-role-apache
-    version: v4.1.1
-  - name: geerlingguy.nginx
-    src: https://github.com/geerlingguy/ansible-role-nginx
-    version: v3.21.0
 
