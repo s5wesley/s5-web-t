@@ -4,10 +4,12 @@
   group:
     name: "{{ group_name }}"
     state: present
-    
+  become: yes
+
 - name: Create a user
   user:
     name: "{{ user_name }}"
     group: "{{ group_name }}"
     state: present
     createhome: yes
+  become: yes  
