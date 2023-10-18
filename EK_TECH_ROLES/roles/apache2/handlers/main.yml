@@ -1,12 +1,6 @@
 ---
 - name: Restart Apache
-  service:
-    name: apache2  # Adjust this based on your system's service name for Apache
+  systemd:
+    name: "{{ package }}"
     state: restarted
-  become: yes
-
-- name: Restart Nginx
-  service:
-    name: nginx
-    state: restarted
-  become: yes
+    enabled: yes
