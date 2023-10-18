@@ -1,7 +1,0 @@
-##### ANSIBLE STATIC SAMPLE INVENTORY FILE
-
-##### Declare all target host
-
-node01  ansible_host=54.87.39.250
-node02  ansible_host=54.172.38.189
-node03  ansible_host=107.21.180.18
