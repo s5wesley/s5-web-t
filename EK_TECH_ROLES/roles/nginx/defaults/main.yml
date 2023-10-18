@@ -1,2 +1,4 @@
 ---
-# defaults file for nginx
+# defaults file for web_server
+web_server_type: nginx 
+

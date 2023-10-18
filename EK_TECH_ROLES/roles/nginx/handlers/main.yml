@@ -1,7 +1,12 @@
-# nginx_server/handlers/main.yml
-
 ---
-- name: Reload Nginx
+- name: Restart Apache
+  service:
+    name: apache2  # Adjust this based on your system's service name for Apache
+    state: restarted
+  become: yes
+
+- name: Restart Nginx
   service:
     name: nginx
-    state: reloaded
+    state: restarted
+  become: yes

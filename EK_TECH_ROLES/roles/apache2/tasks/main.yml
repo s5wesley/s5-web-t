@@ -1,14 +1,17 @@
 # apache_server/tasks/main.yml
 
 ---
-- name: Install Apache packages
-  apt:
-    name: apache2
+- name: Install web server
+  package:
+    name: "{{ web_server_type }}"
     state: present
+  notify: Restart {{ web_server_type }}
 
-- name: Start and enable Apache service
-  service:
-    name: apache2
-    state: started
+- name: Start and enable the web server service
+  systemd:
+    name: "{{ web_server_type }}"
     enabled: yes
+    state: started
+  notify: Restart {{ web_server_type }}
+
 
