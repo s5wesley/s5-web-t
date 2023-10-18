@@ -1,5 +1,6 @@
 - name: EK_TECH s5wesley_project
   hosts: all
+  becomes: yes
   roles:
     - users
     - apache2
