@@ -1,5 +1,4 @@
 ---
 
 # defaults file for web_server
-web_server_type: apache
-
+web_server_type: apache2
