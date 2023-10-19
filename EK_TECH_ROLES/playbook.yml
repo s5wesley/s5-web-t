@@ -5,3 +5,15 @@
     - users
     - apache2
     - nginx
+    - packages
+    - patching
+    - awscli
+    - docker-compose
+    - docker
+    - gitlab
+    - helm
+    - jenkins
+    - kubens_kubectl
+    - sonarqube
+    - terraform
+    
