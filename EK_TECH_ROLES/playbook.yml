@@ -1,12 +1,14 @@
+---
 - name: EK_TECH s5wesley_project
   hosts: all
-  becomes: yes
+  become: yes
   roles:
     - users
     - apache2
     - nginx
     - packages
     - patching
+    - reboot  # Moved "reboot" after "patching"
     - awscli
     - docker-compose
     - docker
@@ -16,4 +18,3 @@
     - kubens_kubectl
     - sonarqube
     - terraform
-    
