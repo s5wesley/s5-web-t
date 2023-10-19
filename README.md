@@ -1,1 +1,1 @@
-# s5-web
+# s5wesley project for installing packages and patching 
