@@ -9,5 +9,5 @@
      - packages 
      - docker
      - docker-compose
-     - nginx
+     - apache2
      - reboot
