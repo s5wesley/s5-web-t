@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_USERNAME = 'mbargabella'
+        DOCKER_HUB_USERNAME = 'devopseasylearning/s5wesley'
         DOCKER_HUB_PASSWORD = 'dckr_pat_44pgHmLgP-cPbekojpQdqsyB2B0'
-        DOCKER_IMAGE_NAME = 'mbargabella/alpine'
+        DOCKER_IMAGE_NAME = 'alpine'
         DOCKER_IMAGE_TAG = 'latest'
     }
 
