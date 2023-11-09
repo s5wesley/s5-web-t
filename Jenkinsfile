@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'prod'
+    }
 
     environment {
         DOCKER_HUB_USERNAME = 'devopseasylearning/s5wesley'
@@ -26,7 +28,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry([credentialsId: '', url: 'https://index.docker.io/v1/']) {
+                    withDockerRegistry([credentialsId: 'your-docker-hub-credentials-id', url: 'https://index.docker.io/v1/']) {
                         docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
                             dockerImage.push()
                         }
