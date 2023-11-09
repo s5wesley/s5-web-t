@@ -4,9 +4,9 @@ pipeline {
     }
 
     environment {
-        DOCKER_HUB_USERNAME = 'devopseasylearning/s5wesley'
-        DOCKER_HUB_PASSWORD = 'dckr_pat_44pgHmLgP-cPbekojpQdqsyB2B0'
-        DOCKER_IMAGE_NAME = 'alpine'
+        DOCKER_HUB_USERNAME = 'mbargabella'
+        DOCKER_HUB_PASSWORD = 'Dicaprio78'
+        DOCKER_IMAGE_NAME = 'nginx'
         DOCKER_IMAGE_TAG = 'latest'
     }
 
@@ -20,6 +20,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
+                    // Configure Docker Tool
+                    def docker = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
                     dockerImage = docker.build("${env.DOCKER_IMAGE_NAME}:${env.DOCKER_IMAGE_TAG}", '.')
                 }
             }
