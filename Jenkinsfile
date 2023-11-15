@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Pull, Tag, and Push Docker Image') {
+        stage('Pull, Tag, and Push Docker Images') {
             steps {
                 script {
                     // Pull the original Docker image
@@ -14,6 +14,14 @@ pipeline {
                     // Push the tagged image to Docker Hub
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
                         docker.image("mbargabella/myapps:v6").push()
+                    }
+
+                    // Tag the image as mbargabella/game:v2
+                    docker.image("mbargabella/myapps:v6").tag("mbargabella/game:v2")
+
+                    // Push the tagged image to Docker Hub
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+                        docker.image("mbargabella/game:v2").push()
                     }
                 }
             }
