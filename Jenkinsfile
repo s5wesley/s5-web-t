@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Pull the specified Docker image
-                    docker.image("mbargabella/myapps:v4").pull()
+                    docker.image("mbargabella/myapps:v3").pull()
                 }
             }
         }
