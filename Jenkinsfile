@@ -2,44 +2,41 @@ pipeline {
     agent any
 
     stages {
-        stage('Stage 1') {
+        stage('Pull and Tag Images') {
             steps {
-                echo 'Hello, wesley! - Stage 1'
-            }
-        }
+                script {
+                    // Pull and tag thomisis-ui image
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                        def uiImage = docker.image('devopseasylearning/thomisis-ui:v0.01')
+                        uiImage.pull()
+                        uiImage.tag('mbargabella/thomisis-ui:v0.01')
+                    }
 
-        stage('Stage 2') {
-            steps {
-                echo 'Hello, harold! - Stage 2'
-            }
-        }
+                    // Pull and tag thomisis-auth image
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                        def authImage = docker.image('devopseasylearning/thomisis-auth:v0.0.1')
+                        authImage.pull()
+                        authImage.tag('mbargabella/thomisis-auth:v0.01')
+                    }
 
-        stage('Stage 3') {
-            steps {
-                echo 'Hello, World! - Stage 3'
-            }
-        }
-
-        stage('Stage 4') {
-            steps {
-                echo 'Hello, World! - Stage 4'
-            }
-        }
-
-        stage('Stage 5') {
-            steps {
-                echo 'Hello, World! - Stage 5'
+                    // Pull and tag thomisis-weather image
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                        def weatherImage = docker.image('devopseasylearning/thomisis-weather:v0.0.1')
+                        weatherImage.pull()
+                        weatherImage.tag('mbargabella/thomisis-weather:v0.0.1')
+                    }
+                }
             }
         }
     }
 
     post {
         success {
-            echo 'All stages completed successfully!'
+            echo 'Image pulling and tagging completed successfully!'
         }
 
         failure {
-            echo 'One or more stages failed. Please check the logs.'
+            echo 'Image pulling and tagging failed. Please check the logs.'
         }
     }
 }
